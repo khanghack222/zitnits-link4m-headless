@@ -1,0 +1,67 @@
+{
+  "manifest_version": 3,
+  "name": "Zitnits Link4M Bypass Master",
+  "version": "1.0.0",
+  "description": "Bypass Link4M toàn diện: Tự động bắt mã nhiệm vụ trang tài trợ, tự động điền mã, tự động nhận diện và nộp link ngay khi giải xong captcha.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "clipboardWrite",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://*.link4m.net/*",
+    "*://*.link4m.co/*",
+    "*://*.link4m.app/*",
+    "*://*.link1s.com/*",
+    "*://*.link1s.net/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Zitnits Link4M Bypass Master"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.link4m.net/*",
+        "*://*.link4m.co/*",
+        "*://*.link4m.app/*",
+        "*://*.link1s.com/*",
+        "*://*.link1s.net/*"
+      ],
+      "js": ["content/content_link4m.js"],
+      "css": ["content/hud.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content_sponsor.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "inject/inject_link4m.js",
+        "inject/inject_sponsor.js",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

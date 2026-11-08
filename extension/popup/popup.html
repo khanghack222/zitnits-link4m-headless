@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Zitnits Link4M Bypass</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <span class="icon">⚡</span>
+        <div class="title-group">
+          <h1>Zitnits Link4M</h1>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+      <div class="status-indicator">
+        <span class="pulse"></span>
+        <span class="text">Hoạt động</span>
+      </div>
+    </header>
+
+    <!-- Code Display Section -->
+    <section class="card code-section">
+      <div class="card-title">Mã nhiệm vụ hiện tại</div>
+      <div class="code-box">
+        <input type="text" id="currentCodeInput" placeholder="Chưa có mã..." readonly>
+        <button id="copyCodeBtn" title="Sao chép mã">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div class="code-manual">
+        <input type="text" id="manualCodeInput" placeholder="Nhập mã tay nếu cần...">
+        <button id="saveManualCodeBtn">Lưu & Nạp</button>
+      </div>
+    </section>
+
+    <!-- Automation Settings -->
+    <section class="card settings-section">
+      <div class="card-title">Cấu hình tự động</div>
+      
+      <div class="setting-row">
+        <div class="setting-info">
+          <label for="autoFillToggle">Tự điền mã nhiệm vụ</label>
+          <span class="desc">Tự động nạp mã vào ô mật khẩu Link4M</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="autoFillToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-info">
+          <label for="autoSubmitToggle">Tự nộp sau khi giải Captcha</label>
+          <span class="desc">Phát hiện checkbox reCAPTCHA/Turnstile và bấm tiếp tục</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="autoSubmitToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-info">
+          <label for="autoRedirectToggle">Tự chuyển hướng đích</label>
+          <span class="desc">Mở link đích ngay khi Link4M mở khóa</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="autoRedirectToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-info">
+          <label for="blockAdsToggle">Chống đơ thời gian trang tài trợ</label>
+          <span class="desc">Giả lập cuộn và chặn phát hiện ẩn tab</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="blockAdsToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- History Log -->
+    <section class="card history-section">
+      <div class="card-title-row">
+        <span class="card-title">Lịch sử mở khóa gần đây</span>
+        <button id="clearHistoryBtn" class="link-btn">Xóa</button>
+      </div>
+      <div id="historyList" class="history-list">
+        <div class="empty-state">Chưa có link nào được mở khóa</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Zitnits Automation Master</span>
+      <span class="dot">•</span>
+      <span>User Captcha Edition</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
